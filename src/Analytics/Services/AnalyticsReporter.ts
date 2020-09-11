@@ -8,6 +8,7 @@ import { AnalyticsReporterContract } from '../Contacts/AnalyticsReporterContract
 import { AnalyticsConfigurationType } from '../Types/AnalyticsConfigurationType';
 import { UserType } from '../Types/UserType';
 
+const CurrentScreenChangeLockName = "CurrentScreenChangeLock";
 const JsAppVersionAttribute = "jsAppVersion";
 
 export class AnalyticsReporter implements AnalyticsReporterContract {
@@ -51,7 +52,16 @@ export class AnalyticsReporter implements AnalyticsReporterContract {
     }
 
     public reportCurrentScreen(name: string) {
-        analytics().setCurrentScreen(name)
+        this._monitor
+            .continueWhenUnlockedAndLockAsync(CurrentScreenChangeLockName)
+            .onSuccess(_ => {
+                analytics().logScreenView({ 
+                    screen_name: name,
+                })
+                this.reportEvent(`OpenScreen${name}`);
+            })
+            .onBoth(_ => this._monitor.unlock(CurrentScreenChangeLockName))
+            .run();
     }
 
     public reportLogin() {

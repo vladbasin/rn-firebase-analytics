@@ -30,8 +30,8 @@
     "dependencies": {
         "@vladbasin/ts-dependencies": "^1.0.1",
         "@vladbasin/ts-result": "^1.0.0",
-        "@vladbasin/ts-types": "^1.0.2",
         "@vladbasin/ts-services": "^1.0.0",
+        "@vladbasin/ts-types": "^1.0.2",
         "lodash": "^4.17.20"
     }
 }
