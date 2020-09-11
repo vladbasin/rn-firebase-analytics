@@ -1,9 +1,13 @@
 {
     "name": "@vladbasin/rn-firebase-analytics",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Analytics library for React Native and Firebase",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vladbasin/rn-firebase-analytics.git"
+    },
     "scripts": {
         "prepublishOnly": "rm -r -f dist && cd src && barrelsby --delete && cd .. && tsc"
     },
