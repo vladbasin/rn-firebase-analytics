@@ -1,6 +1,6 @@
 {
     "name": "@vladbasin/rn-firebase-analytics",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Analytics library for React Native and Firebase",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",

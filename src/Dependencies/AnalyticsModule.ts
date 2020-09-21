@@ -4,7 +4,7 @@ import { AnalyticsReporterContract } from '../Analytics/Contacts/AnalyticsReport
 import { AnalyticsReporter } from '../Analytics/Services/AnalyticsReporter';
 import { ServiceIds } from "./ServiceIds";
 
-export class LocalizationModule implements ModuleContract {
+export class AnalyticsModule implements ModuleContract {
     public register(builder: ServiceCollectionBuilder): ServiceCollectionBuilder {
         return builder
             .add<AnalyticsReporterContract>(ServiceIds.analyticsReporter, AnalyticsReporter, [
